@@ -1,10 +1,12 @@
 import type { ComponentType } from "react";
 
 import {
-  EggIcon,
-  GlutenIcon,
-  MilkIcon,
-  MustardIcon,
+  CeleryIcon,
+  CrustaceanIcon,
+  EggIcon, FishIcon,
+  GlutenIcon, LupinIcon,
+  MilkIcon, MolluscIcon,
+  MustardIcon, NutsIcon, PeanutIcon,
   SesameIcon,
   SoyaIcon,
   SulphiteIcon
@@ -25,12 +27,19 @@ type AlergenoMeta = {
 
 const ALERGENO_META = {
   gluten: { Icon: GlutenIcon },
-  leche: { Icon: MilkIcon },
+  crustaceos: { Icon: CrustaceanIcon },
   huevo: { Icon: EggIcon },
-  mostaza: { Icon: MustardIcon },
+  pescado: { Icon: FishIcon },
+  cacahuetes: { Icon: PeanutIcon },
   soja: { Icon: SoyaIcon },
+  leche: { Icon: MilkIcon },
+  frutos_cascara: { Icon: NutsIcon },
+  apio: { Icon: CeleryIcon },
+  mostaza: { Icon: MustardIcon },
   sesamo: { Icon: SesameIcon },
-  sulfitos: { Icon: SulphiteIcon }
+  sulfitos: { Icon: SulphiteIcon },
+  altramuces: { Icon: LupinIcon },
+  moluscos: { Icon: MolluscIcon }
 } as const satisfies Record<Alergeno, AlergenoMeta>;
 
 type AlergenoIconPropsComponent = {
