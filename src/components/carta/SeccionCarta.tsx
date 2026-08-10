@@ -21,6 +21,12 @@ export function SeccionCarta({ seccion }: SeccionCartaProps) {
         {seccion.titulo}
       </h2>
 
+      {seccion.subtitulo && (
+          <h3 className="text-xl text-accent/60 font-semibold text-muted-foreground">
+            {seccion.subtitulo}
+          </h3>
+      )}
+
       <ul className="space-y-4">
         {seccion.productos.map((producto) => (
           <li key={producto.id}>

@@ -1,12 +1,17 @@
-import type { ComponentType } from "react";
+import { useState, type ComponentType } from "react";
 
 import {
   CeleryIcon,
   CrustaceanIcon,
-  EggIcon, FishIcon,
-  GlutenIcon, LupinIcon,
-  MilkIcon, MolluscIcon,
-  MustardIcon, NutsIcon, PeanutIcon,
+  EggIcon,
+  FishIcon,
+  GlutenIcon,
+  LupinIcon,
+  MilkIcon,
+  MolluscIcon,
+  MustardIcon,
+  NutsIcon,
+  PeanutIcon,
   SesameIcon,
   SoyaIcon,
   SulphiteIcon
@@ -44,20 +49,34 @@ const ALERGENO_META = {
 
 type AlergenoIconPropsComponent = {
   alergeno: Alergeno;
+  abierto: boolean;
+  onToggle: () => void;
+  onClose: () => void;
 };
 
-function AlergenoIcon({ alergeno }: AlergenoIconPropsComponent) {
+function AlergenoIcon({
+  alergeno,
+  abierto,
+  onToggle,
+  onClose
+}: AlergenoIconPropsComponent) {
   const { Icon } = ALERGENO_META[alergeno];
   const label = ALERGENOS[alergeno];
 
   return (
-    <li>
-      <span
+    <li className="relative">
+      <button
+        type="button"
+        aria-label={`Alérgeno: ${label}`}
+        aria-expanded={abierto}
         title={label}
+        onClick={onToggle}
+        onBlur={onClose}
         className="
           group relative inline-flex h-9 w-9 items-center justify-center
           rounded-full border border-accent/30 bg-black/30
           transition-colors hover:border-accent hover:bg-accent/10
+          focus:outline-none focus:ring-2 focus:ring-accent/70
         "
       >
         <span aria-hidden="true">
@@ -68,19 +87,16 @@ function AlergenoIcon({ alergeno }: AlergenoIconPropsComponent) {
           />
         </span>
 
-        <span className="sr-only">
-          Contiene {label}
-        </span>
-
         <span
-          aria-hidden="true"
-          className="
+          className={`
             pointer-events-none absolute bottom-full left-1/2 z-30 mb-2
             -translate-x-1/2 whitespace-nowrap rounded-md
             bg-zinc-900 px-2 py-1 text-xs font-semibold text-white
-            opacity-0 shadow-lg transition-opacity
-            group-hover:opacity-100
-          "
+            shadow-lg transition-opacity
+            group-hover:opacity-100 group-focus:opacity-100
+
+            ${abierto ? "opacity-100" : "opacity-0"}
+          `}
         >
           {label}
 
@@ -91,7 +107,7 @@ function AlergenoIcon({ alergeno }: AlergenoIconPropsComponent) {
             "
           />
         </span>
-      </span>
+      </button>
     </li>
   );
 }
@@ -101,6 +117,8 @@ type AlergenosProps = {
 };
 
 export function Alergenos({ alergenos }: AlergenosProps) {
+  const [alergenoAbierto, setAlergenoAbierto] = useState<Alergeno | null>(null);
+
   if (!alergenos?.length) {
     return null;
   }
@@ -111,7 +129,17 @@ export function Alergenos({ alergenos }: AlergenosProps) {
       className="flex flex-wrap gap-2"
     >
       {alergenos.map((alergeno) => (
-        <AlergenoIcon key={alergeno} alergeno={alergeno} />
+        <AlergenoIcon
+          key={alergeno}
+          alergeno={alergeno}
+          abierto={alergenoAbierto === alergeno}
+          onToggle={() =>
+            setAlergenoAbierto((actual) =>
+              actual === alergeno ? null : alergeno
+            )
+          }
+          onClose={() => setAlergenoAbierto(null)}
+        />
       ))}
     </ul>
   );
