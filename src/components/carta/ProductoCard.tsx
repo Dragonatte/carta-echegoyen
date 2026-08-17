@@ -9,7 +9,7 @@ type ProductoCardProps = {
 
 export function ProductoCard({ producto }: ProductoCardProps) {
   return (
-    <article className="flex gap-3 border-b border-gray-600 pb-4">
+    <article className="flex gap-3 border-b border-gray-600 pb-4 scroll-smooth">
       <div className="min-w-0 flex-1">
         {producto.nombre && (
           <h3 className="mb-2 text-xl font-bold">

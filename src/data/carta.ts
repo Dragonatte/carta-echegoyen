@@ -503,6 +503,50 @@ export const cartaPrincipal = [
         nota: "Pendiente de confirmar la ficha del pollo a la brasa."
       }
     ]
+  },
+  {
+    id: "extras",
+    titulo: "Extras",
+    productos: [
+      {
+        id: "producto-extra",
+        nombre: "Producto extra",
+        descripcion: "Producto extra.",
+        precioCentimos: 1,
+        alergenos: []
+      },
+      {
+        id: "servicio-terraza",
+        nombre: "Servicio terraza",
+        descripcion: "Servicio terraza.",
+        precioCentimos: 20,
+        alergenos: []
+      },
+      {
+        id: "picante-1",
+        nombre: "Picante",
+        descripcion: "Picante.",
+        precioCentimos: 0,
+        alergenos: [],
+        picante: 1
+      },
+      {
+        id: "picante-2",
+        nombre: "Muy picante",
+        descripcion: "Muuuuuy Picante.",
+        precioCentimos: 0,
+        alergenos: [],
+        picante: 2
+      },
+      {
+        id: "picante-3",
+        nombre: "Carolina Reaper",
+        descripcion: "Prohibido a menores de 18 años ni paladares finos.",
+        precioCentimos: 0,
+        alergenos: [],
+        picante: 3
+      }
+    ]
   }
 ] as const satisfies readonly SeccionCarta[];
 

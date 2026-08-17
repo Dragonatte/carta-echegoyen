@@ -35,6 +35,8 @@
   
   --animate-bounce-real: bounce-real 1s infinite;
   --animate-vibrate-rotate-1: vibrate-rotate-1 60ms infinite alternate linear;
+  --animate-vibrate-rotate-2: vibrate-rotate-2 60ms infinite alternate linear;
+  --animate-vibrate-rotate-3: vibrate-rotate-3 60ms infinite alternate linear;
   --animate-float-food: float-food 9s ease-in-out infinite;
   
   --drop-shadow-glow: drop-shadow(0 0 1rem var(--color-accent));
@@ -58,6 +60,26 @@
   
   100% {
     transform: rotate(15deg);
+  }
+}
+
+@keyframes vibrate-rotate-2 {
+  0% {
+    transform: rotate(-20deg);
+  }
+  
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes vibrate-rotate-3 {
+  0% {
+    transform: rotate(-25deg);
+  }
+  
+  100% {
+    transform: rotate(25deg);
   }
 }
 

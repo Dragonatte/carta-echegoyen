@@ -12,7 +12,7 @@ export function SeccionCarta({ seccion }: SeccionCartaProps) {
     <section
       id={seccion.id}
       aria-labelledby={tituloId}
-      className="my-8 flex w-full flex-col scroll-mt-8"
+      className="my-8 flex w-full flex-col scroll-mt-8 scroll-smooth"
     >
       <h2
         id={tituloId}
