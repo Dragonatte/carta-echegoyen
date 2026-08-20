@@ -505,6 +505,41 @@ export const cartaPrincipal = [
     ]
   },
   {
+    id: "combos",
+    titulo: "Combos",
+    productos: [
+      {
+        id: "tablao-xxl",
+        nombre: "Tablao XXL",
+        descripcion:
+          "¡Encantará a los que disfrutan comiendo y el pringue!",
+        precioCentimos: 7000,
+
+        tipo: "combo",
+        personas: 4,
+        modificable: false,
+
+        componentes: [
+          { productoId: "hamburguesa-suculenta" },
+          { productoId: "pulled-chicken-original" },
+          { productoId: "hamburguesa-crispy" },
+          { productoId: "hamburguesa-xtreme-cheddar" },
+          { productoId: "nachos" },
+          { productoId: "patatas-gajo" },
+          { productoId: "patatas-naturales" },
+          { productoId: "aros-de-cebolla" },
+          { productoId: "nuggets-artesanos" },
+          { productoId: "aros-queso-cheddar" }
+        ],
+
+        textoFinal:
+          "Acompañado de salsa ranchera y nuestra salsa de yogur.",
+
+        alergenos: ["gluten", "leche", "huevo"]
+      }
+    ]
+  },
+  {
     id: "extras",
     titulo: "Extras",
     productos: [
@@ -526,7 +561,7 @@ export const cartaPrincipal = [
         id: "picante-1",
         nombre: "Picante",
         descripcion: "Picante.",
-        precioCentimos: 0,
+        precioCentimos: 200,
         alergenos: [],
         picante: 1
       },
@@ -534,7 +569,7 @@ export const cartaPrincipal = [
         id: "picante-2",
         nombre: "Muy picante",
         descripcion: "Muuuuuy Picante.",
-        precioCentimos: 0,
+        precioCentimos: 200,
         alergenos: [],
         picante: 2
       },
@@ -542,9 +577,209 @@ export const cartaPrincipal = [
         id: "picante-3",
         nombre: "Carolina Reaper",
         descripcion: "Prohibido a menores de 18 años ni paladares finos.",
-        precioCentimos: 0,
+        precioCentimos: 200,
         alergenos: [],
         picante: 3
+      }
+    ]
+  }
+] as const satisfies readonly SeccionCarta[];
+
+
+/**
+ * IMPORTANTE:
+ *
+ * La carta vegana fotografiada no contiene información de alérgenos.
+ * Los productos con `alergenos: []` y
+ * `alergenosPendientesDeConfirmar: true` NO deben mostrarse
+ * como productos "sin alérgenos".
+ */
+export const cartaVegana = [
+  {
+    id: "para-picar-vg",
+    titulo: "Para picar",
+    productos: [
+      {
+        id: "vegano-nachos",
+        nombre: "Nachos",
+        descripcion:
+          "Guacamole, carne picada vegana, pico de gallo, jalapeños y salsa ranchera.",
+        precioCentimos: 1400,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      },
+      {
+        id: "vegano-tequenos",
+        nombre: "Tequeños",
+        descripcion:
+          "Acompañados de salsa de cerveza negra.",
+        nota: "6 unidades.",
+        precioCentimos: 800,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      },
+      {
+        id: "vegano-aros-de-cebolla",
+        nombre: "Aros de cebolla",
+        descripcion:
+          "Rebozados y servidos con mahonesa vegana.",
+        nota: "12 unidades.",
+        precioCentimos: 650,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      },
+      {
+        id: "vegano-nuggets",
+        nombre: "Nuggets",
+        descripcion:
+          "Se acompañan de BBQ.",
+        nota: "8 unidades.",
+        precioCentimos: 800,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      },
+      {
+        id: "cheese-lovers-vegetariano",
+        nombre: "Cheese Lovers Vegetariano",
+        descripcion:
+          "Picoteo para amantes del queso compuesto de 2 tequeños, 3 fingers de Mozzarella, 3 aros Cheddar y 3 jalapeños rellenos de Cheddar. Acompañado de BBQ Jack Daniel’s.",
+        precioCentimos: 850,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true,
+        nota:
+          "La propia carta lo denomina «Vegetariano», no «Vegano»."
+      }
+    ]
+  },
+
+  {
+    id: "nuestras-patatas-vg",
+    titulo: "Nuestras patatas",
+    productos: [
+      {
+        id: "vegano-patatas-echegoyen",
+        nombre: "Echegoyen",
+        descripcion:
+          "Gouda vegano fundido, salsa especial y virutas de bacón crispy vegano.",
+        precioCentimos: 800,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      },
+      {
+        id: "vegano-patatas-print",
+        nombre: "Print",
+        descripcion:
+          "Cheddar vegano fundido, salsa Print y cebolla caramelizada.",
+        precioCentimos: 750,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      },
+      {
+        id: "vegano-patatas-steak-house",
+        nombre: "Steak House",
+        descripcion:
+          "Carne picada vegana, Gouda vegano fundido, mahonesa ahumada vegana, BBQ Jack Daniel’s Tennessee y jalapeños.",
+        precioCentimos: 1000,
+        picante: 1,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      },
+      {
+        id: "vegano-patatas-cheeseburguer",
+        nombre: "Patatas Cheeseburguer",
+        descripcion:
+          "Carne picada vegana, salsa Burguer, Cheddar vegano fundido, mahonesa vegana, dados de tomate y virutas de bacón crispy vegano.",
+        precioCentimos: 900,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      }
+    ]
+  },
+
+  {
+    id: "hamburguesas-vg",
+    titulo: "Hamburguesas",
+    subtitulo: "Con patatas fritas caseras.",
+    productos: [
+      {
+        id: "vegano-hamburguesa-suculenta",
+        nombre: "Suculenta",
+        descripcion:
+          "Pan Viena, carne de ternera vegana, lechuga, tomate, Gouda vegano, cebolla, pepinillo, bacón vegano y salsa de cerveza negra.",
+        precioCentimos: 1300,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      },
+      {
+        id: "vegano-hamburguesa-crispy-chicken",
+        nombre: "Crispy Chicken",
+        descripcion:
+          "Pan Viena, pollo crujiente vegano, lechuga, tomate, cebolla caramelizada, guacamole y Gouda vegano.",
+        precioCentimos: 1300,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      },
+      {
+        id: "vegano-hamburguesa-cojonuda",
+        nombre: "Cojonuda",
+        descripcion:
+          "Brioche, carne de ternera vegana, salsa Print, lechuga, cebolla, pepinillo y Cheddar vegano.",
+        precioCentimos: 1300,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      },
+      {
+        id: "vegano-hamburguesa-locura",
+        nombre: "Locura",
+        descripcion:
+          "Brioche, carne de ternera vegana, crema Lotus, mahonesa vegana, bacón vegano, tomate y Gouda vegano.",
+        precioCentimos: 1300,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      },
+      {
+        id: "vegano-hamburguesa-extreme-cheddar",
+        nombre: "Extreme Cheddar",
+        descripcion:
+          "Brioche, carne de ternera vegana, cebolla caramelizada, bacón vegano, mahonesa ahumada vegana, aros de cebolla rebozados y Cheddar vegano.",
+        precioCentimos: 1400,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      }
+    ]
+  },
+
+  {
+    id: "hot-dogs-vg",
+    titulo: "Hot Dogs",
+    subtitulo: "Con patatas gajo.",
+    productos: [
+      {
+        id: "vegano-hot-dog-viki",
+        nombre: "Viki",
+        descripcion:
+          "Pan perrito, salchicha vegana, salsa Print y cebolla crujiente.",
+        precioCentimos: 600,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      },
+      {
+        id: "vegano-hot-dog-original",
+        nombre: "Original",
+        descripcion:
+          "Pan perrito, salchicha vegana, ketchup, mostaza, cebolla picada, pepinillo y cebolla crujiente.",
+        precioCentimos: 700,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
+      },
+      {
+        id: "vegano-hot-dog-bacon-cheese",
+        nombre: "Bacón & Cheese",
+        descripcion:
+          "Pan perrito, salchicha vegana, mahonesa vegana, bacón vegano, Gouda vegano y virutas de bacón crispy vegano.",
+        precioCentimos: 750,
+        alergenos: [],
+        alergenosPendientesDeConfirmar: true
       }
     ]
   }

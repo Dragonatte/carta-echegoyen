@@ -50,6 +50,7 @@ const ALERGENO_META = {
 type AlergenoIconPropsComponent = {
   alergeno: Alergeno;
   abierto: boolean;
+  type: "normal" | "vegana";
   onToggle: () => void;
   onClose: () => void;
 };
@@ -57,11 +58,17 @@ type AlergenoIconPropsComponent = {
 function AlergenoIcon({
   alergeno,
   abierto,
+  type,
   onToggle,
   onClose
 }: AlergenoIconPropsComponent) {
   const { Icon } = ALERGENO_META[alergeno];
   const label = ALERGENOS[alergeno];
+
+  const color_border = type === "vegana" ? "border-accent-vg/30" : "border-accent/30";
+  const hover_border = type === "vegana" ? "hover:border-accent-vg" : "hover:border-accent";
+  const hover_bg = type === "vegana" ? "hover:bg-accent-vg/10" : "hover:bg-accent/10";
+  const focus_border = type === "vegana" ? "focus:ring-accent-vg/70" : "focus:ring-accent/70";
 
   return (
     <li className="relative">
@@ -72,18 +79,18 @@ function AlergenoIcon({
         title={label}
         onClick={onToggle}
         onBlur={onClose}
-        className="
+        className={`
           group relative inline-flex h-9 w-9 items-center justify-center
-          rounded-full border border-accent/30 bg-black/30
-          transition-colors hover:border-accent hover:bg-accent/10
-          focus:outline-none focus:ring-2 focus:ring-accent/70
-        "
+          rounded-full border ${color_border} bg-black/30
+          transition-colors ${hover_border} ${hover_bg}
+          focus:outline-none focus:ring-2 ${focus_border}
+         `}
       >
         <span aria-hidden="true">
           <Icon
             width={24}
             height={24}
-            outerColor="#FAB91B80"
+            outerColor={type === "vegana" ? "#97BD0080" : "#FAB91B80"}
           />
         </span>
 
@@ -114,9 +121,10 @@ function AlergenoIcon({
 
 type AlergenosProps = {
   alergenos?: readonly Alergeno[];
+  type: "normal" | "vegana";
 };
 
-export function Alergenos({ alergenos }: AlergenosProps) {
+export function Alergenos({ alergenos, type }: AlergenosProps) {
   const [alergenoAbierto, setAlergenoAbierto] = useState<Alergeno | null>(null);
 
   if (!alergenos?.length) {
@@ -133,6 +141,7 @@ export function Alergenos({ alergenos }: AlergenosProps) {
           key={alergeno}
           alergeno={alergeno}
           abierto={alergenoAbierto === alergeno}
+          type={type}
           onToggle={() =>
             setAlergenoAbierto((actual) =>
               actual === alergeno ? null : alergeno

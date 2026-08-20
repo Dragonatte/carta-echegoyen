@@ -18,22 +18,30 @@ export const ALERGENOS = {
 export type Alergeno = keyof typeof ALERGENOS;
 export type NivelPicante = 1 | 2 | 3;
 
+export type ComponenteCombo = {
+  productoId: string;
+  cantidad?: number;
+};
+
 export type Producto = {
   id: string;
   nombre?: string;
   descripcion: string;
   precioCentimos: number;
-  /** Muestra "Desde" antes del importe. */
   precioDesde?: boolean;
-  /** Alérgenos presentes según la ficha técnica disponible. */
   alergenos: readonly Alergeno[];
-  /** Trazas declaradas por proveedor; no equivale a ingrediente presente. */
   puedeContener?: readonly Alergeno[];
-  /** Úsalo para no publicar una declaración como definitiva cuando falte una ficha técnica. */
-  alergenosPendientesDeConfirmar?: boolean;
   picante?: NivelPicante;
+
+  tipo?: "normal" | "combo";
+  componentes?: readonly ComponenteCombo[];
+
+  personas?: number;
+  modificable?: boolean;
+  textoFinal?: string;
+
+  alergenosPendientesDeConfirmar?: boolean;
   nota?: string;
-  aviso?: string;
 };
 
 export type SeccionCarta = {
