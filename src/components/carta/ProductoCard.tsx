@@ -85,7 +85,7 @@ const productosVisibles = [
     producto.id,
     {
       producto,
-      nombre: producto.nombre ?? seccion.titulo,
+      nombre: "nombre" in producto ? producto.nombre : seccion.titulo,
       visible: true
     }
   ] as const)
@@ -100,7 +100,7 @@ const productosOcultos = productosAuxiliares.map((producto) => [
   producto.id,
   {
     producto,
-    nombre: producto.nombre ?? producto.id,
+    nombre: producto.nombre,
     visible: false
   }
 ] as const);
