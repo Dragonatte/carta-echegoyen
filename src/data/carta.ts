@@ -94,6 +94,38 @@ export const cartaPrincipal = [
         nota: "8 unidades.",
         precioCentimos: 850,
         alergenos: ["gluten", "huevo", "mostaza"]
+      },
+      {
+        id: "aros-de-cebolla",
+        nombre: "Aros de cebolla",
+        descripcion: "Rebozados y con salsa de yogur casera.",
+        nota: "12 unidades.",
+        precioCentimos: 600,
+        alergenos: ["gluten", "leche", "huevo"]
+      },
+      {
+        id: "nuggets-artesanos",
+        nombre: "Nuggets artesanos",
+        descripcion: "Acompañados de salsa BBQ.",
+        nota: "8 unidades.",
+        precioCentimos: 700,
+        alergenos: ["gluten", "huevo"]
+      },
+      {
+        id: "nachos",
+        nombre: "Nachos",
+        descripcion:
+          "Totopos de maíz con guacamole, carne picada, pico de gallo, jalapeños y salsa ranchera.",
+        precioCentimos: 1400,
+        alergenos: ["leche"]
+      },
+      {
+        id: "cheese-lovers",
+        nombre: "Cheese Lovers",
+        descripcion:
+          "Picoteo para amantes del queso compuesto de 2 tequeños, 3 fingers de Mozzarella, 3 aros Cheddar y 3 jalapeños rellenos de Cheddar. Acompañado de salsa BBQ Jack Daniel’s.",
+        precioCentimos: 850,
+        alergenos: ["gluten", "leche"]
       }
     ]
   },
