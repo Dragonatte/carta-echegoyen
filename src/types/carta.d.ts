@@ -26,8 +26,8 @@ export type ComponenteCombo = {
 export type Producto = {
   id: string;
   nombre?: string;
-  descripcion: string;
-  precioCentimos: number;
+  descripcion?: string;
+  precioCentimos: number | string;
   precioDesde?: boolean;
   alergenos: readonly Alergeno[];
   puedeContener?: readonly Alergeno[];

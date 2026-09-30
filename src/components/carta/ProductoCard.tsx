@@ -231,10 +231,10 @@ export function ProductoCard({
       </div>
 
       <data
-        value={(producto.precioCentimos / 100).toFixed(2)}
+        value={typeof producto.precioCentimos === "number" ? (producto.precioCentimos / 100).toFixed(2) : producto.precioCentimos}
         className={`shrink-0 self-end font-semibold ${priceText}`}
       >
-        {formatEuro(producto.precioCentimos)}
+        {typeof producto.precioCentimos === "number" ? formatEuro(producto.precioCentimos) : producto.precioCentimos}
       </data>
     </article>
   );

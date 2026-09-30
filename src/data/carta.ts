@@ -47,7 +47,7 @@ export const cartaPrincipal = [
         id: "patatas-echegoyen",
         nombre: "Echegoyen",
         descripcion:
-          "Patatas gajo, Gouda fundido, salsa Cheddar, salsa especial y virutas de bacon crispy.",
+          "Gouda fundido, salsa Cheddar, salsa especial y virutas de bacon crispy.",
         precioCentimos: 700,
         alergenos: ["gluten", "leche", "huevo", "mostaza"],
         puedeContener: ["soja"],
@@ -58,7 +58,7 @@ export const cartaPrincipal = [
         id: "patatas-cheeseburger",
         nombre: "Cheeseburger",
         descripcion:
-          "Patatas gajo, carne especiada, salsa Burger, Cheddar ahumado fundido, mahonesa ahumada, dados de tomate y virutas de bacon crispy.",
+          "Carne especiada, salsa Burger, Cheddar ahumado fundido, mahonesa ahumada, dados de tomate y virutas de bacon crispy.",
         precioCentimos: 850,
         alergenos: ["gluten", "leche", "huevo", "mostaza", "soja", "apio", "sulfitos"]
       },
@@ -66,7 +66,7 @@ export const cartaPrincipal = [
         id: "patatas-steak-house",
         nombre: "Steak House",
         descripcion:
-          "Patatas gajo, pulled pork, Gouda fundido, mahonesa ahumada, BBQ Jack Daniel’s Tennessee, salsa Bourbon y jalapeños.",
+          "Nuestro pulled pork, Gouda fundido, mahonesa ahumada, BBQ Jack Daniel’s Tennessee, salsa Bourbon y jalapeños.",
         precioCentimos: 900,
         picante: 1,
         alergenos: ["gluten", "leche", "huevo", "mostaza", "soja", "pescado", "apio", "sulfitos"],
@@ -76,7 +76,7 @@ export const cartaPrincipal = [
       {
         id: "patatas-bravas",
         nombre: "Bravas",
-        descripcion: "Patatas gajo con nuestra salsa picante y alioli de ajo negro.",
+        descripcion: "Patatas con nuestra salsa picante y alioli de ajo negro.",
         precioCentimos: 750,
         picante: 1,
         alergenos: ["gluten", "huevo"]
@@ -578,20 +578,19 @@ export const cartaPrincipal = [
       {
         id: "producto-extra",
         nombre: "Producto extra",
-        descripcion: "Producto extra.",
-        precioCentimos: 1,
+        precioCentimos: "A partir de 0,80€",
         alergenos: []
       },
       {
         id: "servicio-terraza",
         nombre: "Servicio terraza",
-        descripcion: "Servicio terraza.",
-        precioCentimos: 20,
+        descripcion: "",
+        precioCentimos: "A partir de 0,20€ por producto",
         alergenos: []
       },
       {
         id: "picante-1",
-        nombre: "Picante",
+        nombre: "Habanero",
         descripcion: "Picante.",
         precioCentimos: 200,
         alergenos: [],
@@ -599,7 +598,7 @@ export const cartaPrincipal = [
       },
       {
         id: "picante-2",
-        nombre: "Muy picante",
+        nombre: "El increíble Hulk",
         descripcion: "Muuuuuy Picante.",
         precioCentimos: 200,
         alergenos: [],
@@ -784,7 +783,7 @@ export const cartaVegana = [
   {
     id: "hot-dogs-vg",
     titulo: "Hot Dogs",
-    subtitulo: "Con patatas gajo.",
+    subtitulo: "Con patatas.",
     productos: [
       {
         id: "vegano-hot-dog-viki",
